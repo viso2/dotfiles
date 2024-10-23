@@ -1,5 +1,5 @@
 local Terminal = require("toggleterm.terminal").Terminal
-local lazygit = Terminal:new({ cmd = "lazygit", hidden = true})
+local lazygit = Terminal:new({ cmd = "lazygit", direction = "float", hidden = true})
 
 -- Map leader
 vim.g.mapleader = " "
@@ -19,9 +19,17 @@ vim.keymap.set("n", "<Leader>th", "<Cmd>ToggleTerm direction=horizontal<CR>", { 
 vim.keymap.set("n", "<Leader>tv", "<Cmd>ToggleTerm direction=vertical<CR>", { desc = "Open vertical terminal"})
 vim.keymap.set("n", "<Leader>tl", ":lua LazygitToggle()<CR>", { desc = "Opens lazygit terminal"})
 
-function LazygitToggle()
-    lazygit:toggle()
-end
+-- lsp
+vim.keymap.set("n", "gd", ":lua JmpToDecl()", {desc = "Jump to declaration"})
+vim.keymap.set("n", "gD", ":lua JmpToDefi()", {desc = "Jump to definition"})
+vim.keymap.set("n", "gI", ":lua JmpToImpl()", {desc = "Jump to implementation"})
+vim.keymap.set("n", "<Leader>lr", ":lua rename()", {desc = "Rename current symbol"})
+
+function rename() vim.lsp.buf.rename() end
+function JmpToImpl() vim.lsp.buf.implementation() end
+function JmpToDecl() vim.lsp.buf.declaration() end
+function JmpToDefi() vim.lsp.buf.definition() end
+function LazygitToggle() lazygit:toggle() end
 
 function FocusNeoTree()
 	local filetype = vim.bo.filetype
