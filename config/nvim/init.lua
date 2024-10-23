@@ -4,6 +4,7 @@ require("config.nvim-cmp")
 require("config.heirline")
 require("config.bufferline")
 require("config.gitsigns")
+require("config.toggleterm")
 
 vim.cmd.colorscheme "catppuccin"
 vim.opt.termguicolors = true

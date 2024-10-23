@@ -1,3 +1,6 @@
+local Terminal = require("toggleterm.terminal").Terminal
+local lazygit = Terminal:new({ cmd = "lazygit", hidden = true})
+
 -- Map leader
 vim.g.mapleader = " "
 
@@ -9,6 +12,16 @@ vim.keymap.set("n", "<Leader>fg", require("telescope.builtin").live_grep, { desc
 vim.keymap.set("n", "<Leader>e", "<Cmd>Neotree<CR>", { desc = "Enable Explorer"})
 vim.keymap.set("n", "<Leader>o", ":lua FocusNeoTree()<CR>", { desc = "Changes the focus to/from neotree" })
 vim.keymap.set("n", "<Leader>c", "<Cmd>Neotree close<CR>", { desc = "Close Explorer"})
+
+-- toggle-term
+vim.keymap.set("n", "<Leader>tf", "<Cmd>ToggleTerm direction=float<CR>", { desc = "Open floating terminal"})
+vim.keymap.set("n", "<Leader>th", "<Cmd>ToggleTerm direction=horizontal<CR>", { desc = "Open horisontal terminal"})
+vim.keymap.set("n", "<Leader>tv", "<Cmd>ToggleTerm direction=vertical<CR>", { desc = "Open vertical terminal"})
+vim.keymap.set("n", "<Leader>tl", ":lua LazygitToggle()<CR>", { desc = "Opens lazygit terminal"})
+
+function LazygitToggle()
+    lazygit:toggle()
+end
 
 function FocusNeoTree()
 	local filetype = vim.bo.filetype
