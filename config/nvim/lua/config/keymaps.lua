@@ -23,9 +23,11 @@ vim.keymap.set("n", "<Leader>tl", ":lua LazygitToggle()<CR>", { desc = "Opens la
 vim.keymap.set("n", "gd", ":lua JmpToDecl()", {desc = "Jump to declaration"})
 vim.keymap.set("n", "gD", ":lua JmpToDefi()", {desc = "Jump to definition"})
 vim.keymap.set("n", "gI", ":lua JmpToImpl()", {desc = "Jump to implementation"})
-vim.keymap.set("n", "<Leader>lr", ":lua rename()", {desc = "Rename current symbol"})
+vim.keymap.set("n", "<Leader>lr", ":lua Rename()", {desc = "Rename current symbol"})
+vim.keymap.set("n", "<Leader>lR", ":lua Reference()", {desc = "Search references"})
 
-function rename() vim.lsp.buf.rename() end
+function Reference() vim.lsp.buf.references() end
+function Rename() vim.lsp.buf.rename() end
 function JmpToImpl() vim.lsp.buf.implementation() end
 function JmpToDecl() vim.lsp.buf.declaration() end
 function JmpToDefi() vim.lsp.buf.definition() end
