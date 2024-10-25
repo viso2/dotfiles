@@ -11,7 +11,8 @@ return {
 
 			lspconfig.clangd.setup {
 				on_attach = on_attach,
-				cmd = { "clangd", "--background-index", "--clang-tidy" },
+				cmd = { "clangd", "--background-index", "--clang-tidy", "--cross-file-rename", "--suggest-missing-includes", "--all-scopes-completion" },
+                root_dir = require("lspconfig").util.root_pattern(".git"),
 				settings = {
 					clangd = {
 						compilationDatabasePath = "build",
