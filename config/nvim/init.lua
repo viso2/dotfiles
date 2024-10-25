@@ -6,7 +6,7 @@ require("config.bufferline")
 require("config.gitsigns")
 require("config.toggleterm")
 
-vim.cmd.colorscheme "catppuccin"
+vim.cmd.colorscheme "rose-pine"
 vim.opt.termguicolors = true
 vim.o.relativenumber = true
 vim.o.shiftwidth = 4
