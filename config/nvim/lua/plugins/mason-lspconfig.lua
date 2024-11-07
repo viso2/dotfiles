@@ -6,11 +6,11 @@ return {
 				ensure_installed = {
 					"clangd",
 					"lua_ls",
-					"cmake"
+					"cmake",
+                    "pyright"
 				},
 				automatic_installation = true,
 			})
 		end
-
 	}
 }

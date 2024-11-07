@@ -21,6 +21,7 @@ return {
 			}
 			lspconfig.lua_ls.setup { on_attach = on_attach }
 			lspconfig.cmake.setup { on_attach = on_attach }
+            lspconfig.pyright.setup { on_attach = on_attach }
 		end
 	}
 }
