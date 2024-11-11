@@ -26,6 +26,11 @@ vim.keymap.set("n", "gI", ":lua JmpToImpl()", {desc = "Jump to implementation"})
 vim.keymap.set("n", "<Leader>lr", ":lua Rename()", {desc = "Rename current symbol"})
 vim.keymap.set("n", "<Leader>lR", ":lua Reference()", {desc = "Search references"})
 
+-- treesitter
+vim.keymap.set("n", "<leader>z", "za", { desc = "Toggle fold" })  -- <leader>z to toggle fold
+vim.keymap.set("n", "<leader>O", "zR", { desc = "Open all folds" })  -- <leader>O to open all folds
+vim.keymap.set("n", "<leader>C", "zM", { desc = "Close all folds" })  -- <leader>C to close all folds
+
 function Reference() vim.lsp.buf.references() end
 function Rename() vim.lsp.buf.rename() end
 function JmpToImpl() vim.lsp.buf.implementation() end
