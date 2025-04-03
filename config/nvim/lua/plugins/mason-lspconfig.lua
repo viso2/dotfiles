@@ -7,7 +7,9 @@ return {
 					"clangd",
 					"lua_ls",
 					"cmake",
-                    "pyright"
+                    "pyright",
+                    "rust_analyzer",
+                    "asm_lsp"
 				},
 				automatic_installation = true,
 			})

@@ -22,6 +22,8 @@ return {
 			lspconfig.lua_ls.setup { on_attach = on_attach }
 			lspconfig.cmake.setup { on_attach = on_attach }
             lspconfig.pyright.setup { on_attach = on_attach }
+            lspconfig.rust_analyzer.setup { on_attach = on_attach}
+            lspconfig.asm_lsp.setup {on_attach = on_attach}
 		end
 	}
 }
